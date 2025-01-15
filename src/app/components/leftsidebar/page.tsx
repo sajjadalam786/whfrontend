@@ -48,7 +48,7 @@ const LeftSidebar = () => {
 
           {/* Add Vendor - Simple Link */}
           <Link
-            href="/components/addvendor"
+            href="/components/addvendorform"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
           >
             <MdOutlineGroupAdd size={20} />
