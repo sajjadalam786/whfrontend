@@ -5,7 +5,12 @@ import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { RiDashboardLine, RiShoppingCart2Line } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
-import { MdOutlineGroupAdd } from "react-icons/md";
+import {
+  MdOutlineGroupAdd,
+  MdOutlineList,
+  MdOutlineCategory,
+  MdOutlineAddShoppingCart,
+} from "react-icons/md";
 
 const LeftSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,13 +51,61 @@ const LeftSidebar = () => {
             <span>Dashboard</span>
           </Link>
 
-          {/* Add Vendor - Simple Link */}
+          {/* Add Vendor - Form-------------------------- */}
           <Link
             href="/components/addvendorform"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
           >
             <MdOutlineGroupAdd size={20} />
             <span>Add Vendor</span>
+          </Link>
+
+          {/* Vendor List - Front Page----------------- */}
+          <Link
+            href="/components/vendorlist"
+            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+          >
+            <MdOutlineList size={20} />
+            <span>Vendor List</span>
+          </Link>
+
+          {/* Add Category for Product - HandWritten code --------------------  */}
+          <Link
+            href="/components/addcategory"
+            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+          >
+            <MdOutlineCategory size={20} />
+            <span>Add Category</span>
+          </Link>
+
+          {/* Add SUB category for Product - Handwritten Code ------------------------ */}
+
+          <Link
+            href="/components/addsubcategory"
+            className="flex items-center rounded-lg p-3 space-x-3 hover:bg-white/10 transition-colors"
+          >
+            <MdOutlineCategory size={20} />
+            <span>Add Sub Category</span>
+          </Link>
+
+          {/* Add SUB SUB category for Product - Handwritten Code ----------------------- */}
+
+          <Link
+            href="/components/addsubsubcategory"
+            className="rounded-lg flex hover:bg-white/10 transition-colors items-center p-3 space-x-3"
+          >
+            <MdOutlineCategory size={20} />
+            <span>Add Sub Sub Category</span>
+          </Link>
+
+          {/* Add Product Form - handWritten code --------------------------- */}
+
+          <Link
+            href="/components/addproduct/"
+            className="flex rounded-lg hover:bg-white/10 transition-colors items-center p-3 space-x-3"
+          >
+            <MdOutlineAddShoppingCart size={20} />
+            <span>Add Product</span>
           </Link>
 
           {/* Orders - With Submenu */}
