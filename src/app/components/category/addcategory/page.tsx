@@ -62,7 +62,7 @@ export default function AddCategory(): JSX.Element {
           {/* Header */}
           <div className="mb-6">
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-              Add New Category
+              Add Category
             </h1>
             <p className="mt-2 text-sm text-gray-600">
               Create a new category with name and image

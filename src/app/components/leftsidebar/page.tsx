@@ -3,19 +3,30 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
-import { RiDashboardLine, RiShoppingCart2Line } from "react-icons/ri";
+import { RiDashboardLine } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 import {
   MdOutlineGroupAdd,
-  MdOutlineList,
   MdOutlineCategory,
   MdOutlineAddShoppingCart,
 } from "react-icons/md";
+import { FaRegCircle, FaRegListAlt } from "react-icons/fa";
+import { TbBrandBeats } from "react-icons/tb";
+import { BsEmojiDizzy } from "react-icons/bs";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
+/* The `LeftSidebar` component is a functional component in React that defines a sidebar layout for a
+web application. */
 const LeftSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
+  /**
+   * The function `toggleSubmenu` toggles the visibility of a submenu based on the provided menu
+   * string.
+   * @param {string} menu - The `menu` parameter in the `toggleSubmenu` function is a string that
+   * represents the submenu that you want to toggle.
+   */
   const toggleSubmenu = (menu: string) => {
     setOpenSubmenu(openSubmenu === menu ? null : menu);
   };
@@ -51,52 +62,163 @@ const LeftSidebar = () => {
             <span>Dashboard</span>
           </Link>
 
-          {/* Add Vendor - Form-------------------------- */}
-          <Link
-            href="/components/addvendorform"
-            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <MdOutlineGroupAdd size={20} />
-            <span>Add Vendor</span>
-          </Link>
+          {/* Vendor Setup */}
 
-          {/* Vendor List - Front Page----------------- */}
-          <Link
-            href="/components/vendorlist"
-            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <MdOutlineList size={20} />
-            <span>Vendor List</span>
-          </Link>
+          <div>
+            <button
+              onClick={() => toggleSubmenu("vendor")}
+              className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center space-x-3">
+                <BsEmojiDizzy size={20} />
+
+                <span>Vendor Setup</span>
+              </div>
+              <IoIosArrowDown
+                className={`transform transition-transform duration-200 
+                  ${openSubmenu === "vendor" ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {/* Submenu Items */}
+            {/* The `<div>` element with the dynamic `className` attribute is controlling the visibility
+            and animation of a submenu based on the state of `openSubmenu`. Here's a breakdown of
+            what it's doing: */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                openSubmenu === "vendor"
+                  ? "max-h-40 opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="pl-9 py-2 space-y-2">
+                <Link
+                  href="/components/vendor/addvendor/"
+                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <MdOutlineGroupAdd size={20} />
+
+                  <span>Add New Vendor</span>
+                </Link>
+                <Link
+                  href="/components/vendor/vendorlist/"
+                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <FaRegListAlt size={15} />
+
+                  <span>Vendor List</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* ----------------------- */}
+
+          {/* Brand Setup */}
+
+          <div>
+            <button
+              onClick={() => toggleSubmenu("brand")}
+              className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center space-x-3">
+                <TbBrandBeats size={20} />
+
+                <span>Brand Setup</span>
+              </div>
+              <IoIosArrowDown
+                className={`transform transition-transform duration-200 
+                  ${openSubmenu === "brand" ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {/* Submenu Items */}
+            {/* The `<div>` element with the dynamic `className` attribute is controlling the visibility
+            and animation of a submenu based on the state of `openSubmenu`. Here's a breakdown of
+            what it's doing: */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                openSubmenu === "brand"
+                  ? "max-h-40 opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="pl-9 py-2 space-y-2">
+                <Link
+                  href="/components/brand/addbrand/"
+                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <IoIosAddCircleOutline size={20} />
+
+                  <span>Add New Brand</span>
+                </Link>
+                <Link
+                  href="/components/brand/brandlist/"
+                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <FaRegListAlt size={15} />
+
+                  <span>Brand List</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* ----------------------- */}
 
           {/* Add Category for Product - HandWritten code --------------------  */}
-          <Link
-            href="/components/addcategory"
-            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <MdOutlineCategory size={20} />
-            <span>Add Category</span>
-          </Link>
 
-          {/* Add SUB category for Product - Handwritten Code ------------------------ */}
+          <div>
+            <button
+              onClick={() => toggleSubmenu("category")}
+              className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center space-x-3">
+                <MdOutlineCategory size={20} />
+                <span>Category Setup</span>
+              </div>
+              <IoIosArrowDown
+                className={`transform transition-transform duration-200 
+                  ${openSubmenu === "category" ? "rotate-180" : ""}`}
+              />
+            </button>
 
-          <Link
-            href="/components/addsubcategory"
-            className="flex items-center rounded-lg p-3 space-x-3 hover:bg-white/10 transition-colors"
-          >
-            <MdOutlineCategory size={20} />
-            <span>Add Sub Category</span>
-          </Link>
+            {/* Submenu Items */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                openSubmenu === "category"
+                  ? "max-h-40 opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="pl-9 py-2 space-y-2">
+                <Link
+                  href="/components/category/addcategory/"
+                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <FaRegCircle size={15} />
 
-          {/* Add SUB SUB category for Product - Handwritten Code ----------------------- */}
+                  <span>New Category</span>
+                </Link>
+                <Link
+                  href="/components/category/addsubcategory/"
+                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <FaRegCircle size={15} />
+                  <span>Sub Category</span>
+                </Link>
+                <Link
+                  href="/components/category/addsubsubcategory/"
+                  className="flex space-x-3 p-2 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <FaRegCircle size={15} />
+                  <span>Sub Sub Category</span>
+                </Link>
+              </div>
+            </div>
+          </div>
 
-          <Link
-            href="/components/addsubsubcategory"
-            className="rounded-lg flex hover:bg-white/10 transition-colors items-center p-3 space-x-3"
-          >
-            <MdOutlineCategory size={20} />
-            <span>Add Sub Sub Category</span>
-          </Link>
+          {/* ----------------------- */}
 
           {/* Add Product Form - handWritten code --------------------------- */}
 
@@ -108,47 +230,7 @@ const LeftSidebar = () => {
             <span>Add Product</span>
           </Link>
 
-          {/* Orders - With Submenu */}
-          <div>
-            <button
-              onClick={() => toggleSubmenu("orders")}
-              className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center space-x-3">
-                <RiShoppingCart2Line size={20} />
-                <span>Orders</span>
-              </div>
-              <IoIosArrowDown
-                className={`transform transition-transform duration-200 ${
-                  openSubmenu === "orders" ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {/* Submenu Items */}
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openSubmenu === "orders"
-                  ? "max-h-40 opacity-100"
-                  : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="pl-9 py-2 space-y-2">
-                <Link
-                  href="/orders/new"
-                  className="block p-2 rounded-lg hover:bg-white/10 transition-colors"
-                >
-                  New Orders
-                </Link>
-                <Link
-                  href="/orders/completed"
-                  className="block p-2 rounded-lg hover:bg-white/10 transition-colors"
-                >
-                  Completed Orders
-                </Link>
-              </div>
-            </div>
-          </div>
+          {/* --------------------- */}
         </nav>
 
         {/* Footer Section */}

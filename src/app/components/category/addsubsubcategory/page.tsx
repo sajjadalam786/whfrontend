@@ -69,7 +69,7 @@ const AddSubSubCategory: FC = () => {
       <div className="max-w-md mx-auto">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Add New Sub Sub Category
+            Add Sub Sub Category
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">

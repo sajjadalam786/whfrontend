@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import "tailwindcss/tailwind.css";
 
 type Field = {
@@ -41,23 +42,26 @@ const AddProductForm: React.FC = () => {
 
   const fields: Field[] = [
     { label: "Name", type: "text", required: true },
+
+    { label: "Purchase Price", type: "number", required: false },
+
     { label: "Sale Price", type: "number", required: true },
+
     { label: "MRP", type: "number", required: false },
-    { label: "Tax", type: "number", required: true },
-    { label: "Purchase Price", type: "number", required: true },
-    { label: "Quantity", type: "number", required: true },
-    { label: "Measuring Units", type: "text", required: true },
+
+    { label: "Quantity", type: "number", required: false },
+
     { label: "Youtube URL", type: "url", required: false },
-    { label: "Brand", type: "text", required: true },
-    { label: "HSN", type: "text", required: true },
+
     { label: "Min Quantity", type: "number", required: true },
+
     { label: "Size", type: "text", required: false },
     { label: "Weight", type: "text", required: false },
     { label: "Color", type: "text", required: false },
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Add Product</h1>
       <form className="space-y-6">
         {/* Product Image Section */}
@@ -79,7 +83,9 @@ const AddProductForm: React.FC = () => {
           <div className="flex space-x-2 mt-4">
             {images.map((image, index) => (
               <div key={index} className="relative">
-                <img
+                <Image
+                  width={20}
+                  height={20}
                   src={URL.createObjectURL(image)}
                   alt="Uploaded Preview"
                   className="h-20 w-20 object-cover rounded border"
@@ -110,8 +116,11 @@ const AddProductForm: React.FC = () => {
         {fields.map((field, index) => (
           <div key={index}>
             <label className="block text-sm font-medium mb-1">
+              {/* display Label Dynamically & then * mark if field is required*/}
               {field.label}
-              {field.required && <span className="text-red-500"> *</span>}{" "}
+              {field.required && (
+                <span className="text-red-500 font-bold"> * </span>
+              )}
               {/* Indicate required fields */}
             </label>
             <input
@@ -121,6 +130,46 @@ const AddProductForm: React.FC = () => {
             />
           </div>
         ))}
+
+        {/* Brand Dropdown  */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Brand </label>
+          <select className="block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none">
+            <option value="">Select Registered Brand</option>
+            <option value="brand 1">Wholesale House</option>
+            <option value="brand 2">Puma</option>
+            <option value="brand 3">Gucci</option>
+          </select>
+        </div>
+
+        {/* Tax Dropdown */}
+        <div className="flex justify-evenly">
+          <div className="w-60">
+            <label className="block text-sm font-medium mb-1">Tax</label>
+            <select className="block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none">
+              <option value="">Select Tax Rate</option>
+              <option value="Tax 1">0 %</option>
+              <option value="Tax 2">18 %</option>
+              <option value="Tax 3">24 %</option>
+            </select>
+          </div>
+
+          {/* HSN Code Field fetch From server  */}
+          <div className="w-60">
+            <label
+              htmlFor="HSN code"
+              className=" block text-sm font-medium mb-1"
+            >
+              HSN Code
+            </label>
+            <input
+              type="text"
+              name="hsncode"
+              id="hsncode"
+              className=" block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none"
+            />
+          </div>
+        </div>
 
         {/* Categories Dropdown */}
         <div>
@@ -137,21 +186,26 @@ const AddProductForm: React.FC = () => {
         <div>
           <label className="block text-sm font-medium mb-1">Payment Mode</label>
           <select className="block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none">
-            <option value="">Select Payment Mode</option>
+            <option value="">Select Default Payment Mode</option>
             <option value="Cash">Cash</option>
             <option value="Card">Card</option>
             <option value="UPI">UPI</option>
           </select>
         </div>
 
-        {/* Variants Textarea */}
+        {/* Net Quantity */}
         <div>
-          <label className="block text-sm font-medium mb-1">
-            Variants - Net Quantity
+          <label
+            htmlFor="Net Quantity"
+            className=" block text-sm font-medium mb-1"
+          >
+            Net Quantity
           </label>
-          <textarea
-            className="block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none"
-            rows={3}
+          <input
+            type="text"
+            name="netquantity"
+            id="netquantity"
+            className=" block w-full mt-1 p-2 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none"
           />
         </div>
 
