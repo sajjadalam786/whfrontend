@@ -62,6 +62,15 @@ const LeftSidebar = () => {
             <span>Dashboard</span>
           </Link>
 
+          {/* product List - Simple Link */}
+          <Link
+            href="/components/product/productlist/"
+            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+          >
+            <MdOutlineAddShoppingCart size={20} />
+            <span>Product List</span>
+          </Link>
+
           {/* Vendor Setup */}
 
           <div>

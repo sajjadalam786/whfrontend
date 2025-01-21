@@ -1,18 +1,62 @@
 "use client";
 
+/**
+ * AddProductForm component.
+ *
+ * This component is used to create a form for adding new products.
+ * It includes fields for product name, price, quantity, images, and more.
+ *
+ * @example
+ * <AddProductForm />
+ */
+
 import React, { useState } from "react";
 import Image from "next/image";
 import "tailwindcss/tailwind.css";
 
+/**
+ * Field type definition.
+ *
+ * This type represents a single field in the form.
+ * It includes the field label, type, and whether it's required.
+ */
 type Field = {
+  /**
+   * The label for the field.
+   */
   label: string;
+  /**
+   * The type of the field (e.g. text, number, url).
+   */
   type: string;
+  /**
+   * Whether the field is required.
+   */
   required: boolean;
 };
 
+/**
+ * AddProductForm component.
+ *
+ * This component is used to create a form for adding new products.
+ * It includes fields for product name, price, quantity, images, and more.
+ *
+ * @returns The AddProductForm component.
+ */
 const AddProductForm: React.FC = () => {
+  /**
+   * State for storing the uploaded images.
+   */
   const [images, setImages] = useState<File[]>([]);
 
+  /**
+   * Handles changes to the image input field.
+   *
+   * This function is called when the user selects new images to upload.
+   * It updates the state with the new images.
+   *
+   * @param e The event object.
+   */
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newImages = Array.from(e.target.files).slice(0, 6);
@@ -20,6 +64,15 @@ const AddProductForm: React.FC = () => {
     }
   };
 
+  /**
+   * Handles reordering of the images.
+   *
+   * This function is called when the user clicks the up or down arrow buttons.
+   * It updates the state with the new image order.
+   *
+   * @param index The index of the image to reorder.
+   * @param direction The direction to move the image (up or down).
+   */
   const handleImageReorder = (index: number, direction: "up" | "down") => {
     const newImages = [...images];
     if (direction === "up" && index > 0) {
@@ -36,6 +89,9 @@ const AddProductForm: React.FC = () => {
     setImages(newImages);
   };
 
+  /**
+   * The fields for the form.
+   */
   const fields: Field[] = [
     { label: "Name", type: "text", required: true },
     { label: "Purchase Price", type: "number", required: false },
@@ -50,8 +106,9 @@ const AddProductForm: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-6 bg-white shadow-2xl rounded-lg">
-      <h1 className="text-xl md:text-2xl font-bold mb-4">Add Product</h1>
+    <div className="max-w-4xl mx-auto p-4 md:p-6 bg-white shadow-2xl rounded-lg mt-14">
+      <h1 className="text-2xl md:text-2xl font-bold mb-4">Add Product</h1>
+
       <form className="space-y-4 md:space-y-6">
         {/* Image Upload Section */}
         <div className="space-y-2">
