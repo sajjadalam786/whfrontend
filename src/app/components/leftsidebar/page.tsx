@@ -62,6 +62,18 @@ const LeftSidebar = () => {
             <span>Dashboard</span>
           </Link>
 
+          {/* Add Product Form - handWritten code --------------------------- */}
+
+          {/* <Link
+            href="/components/product/addproduct/"
+            className="flex rounded-lg hover:bg-white/10 transition-colors items-center p-3 space-x-3"
+          >
+            <MdOutlineAddShoppingCart size={20} />
+            <span>Add Product</span>
+          </Link> */}
+
+          {/* --------------------- */}
+
           {/* product List - Simple Link */}
           <Link
             href="/components/product/productlist/"
@@ -103,7 +115,7 @@ const LeftSidebar = () => {
               <div className="pl-9 py-2 space-y-2">
                 <Link
                   href="/components/vendor/addvendor/"
-                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className=" flex space-x-3 items-centerp-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <MdOutlineGroupAdd size={20} />
 
@@ -111,7 +123,7 @@ const LeftSidebar = () => {
                 </Link>
                 <Link
                   href="/components/vendor/vendorlist/"
-                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className="flex space-x-3 items-center  p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegListAlt size={15} />
 
@@ -155,7 +167,7 @@ const LeftSidebar = () => {
               <div className="pl-9 py-2 space-y-2">
                 <Link
                   href="/components/brand/addbrand/"
-                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className=" space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <IoIosAddCircleOutline size={20} />
 
@@ -163,7 +175,7 @@ const LeftSidebar = () => {
                 </Link>
                 <Link
                   href="/components/brand/brandlist/"
-                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className="flex space-x-3 items-center p-2  rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegListAlt size={15} />
 
@@ -203,7 +215,7 @@ const LeftSidebar = () => {
               <div className="pl-9 py-2 space-y-2">
                 <Link
                   href="/components/category/addcategory/"
-                  className=" flex space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className=" flex space-x-3 items-center  rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />
 
@@ -211,14 +223,14 @@ const LeftSidebar = () => {
                 </Link>
                 <Link
                   href="/components/category/addsubcategory/"
-                  className="flex space-x-3 items-center p-2 block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className="flex space-x-3 items-center p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />
                   <span>Sub Category</span>
                 </Link>
                 <Link
                   href="/components/category/addsubsubcategory/"
-                  className="flex space-x-3 p-2 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className="flex space-x-3 p-2 items-center  rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />
                   <span>Sub Sub Category</span>
@@ -228,18 +240,6 @@ const LeftSidebar = () => {
           </div>
 
           {/* ----------------------- */}
-
-          {/* Add Product Form - handWritten code --------------------------- */}
-
-          <Link
-            href="/components/product/addproduct/"
-            className="flex rounded-lg hover:bg-white/10 transition-colors items-center p-3 space-x-3"
-          >
-            <MdOutlineAddShoppingCart size={20} />
-            <span>Add Product</span>
-          </Link>
-
-          {/* --------------------- */}
         </nav>
 
         {/* Footer Section */}

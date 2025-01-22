@@ -5,7 +5,11 @@ import Image from "next/image";
 // import { Product } from "@/types";
 import { useState } from "react";
 
-export interface Product {
+import { IoMdSearch } from "react-icons/io";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import Link from "next/link";
+
+interface Product {
   id: string;
   sku: string;
   name: string;
@@ -42,21 +46,21 @@ export default function ProductTable({ products }: ProductTableProps) {
   return (
     <div className="space-y-4">
       {/* Filter Section */}
-      <div className="bg-white rounded-lg shadow p-4">
+      <div className="bg-white rounded-lg shadow-lg p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           {/* Search */}
           <div className="relative">
             <input
               type="text"
-              placeholder="Enter Product Name"
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Product Name..."
+              className=" w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={filters.search}
               onChange={(e) =>
                 setFilters({ ...filters, search: e.target.value })
               }
             />
             <span className="absolute right-3 top-2.5 text-gray-400">
-              <SearchIcon className="w-5 h-5" />
+              <IoMdSearch className="w-5 h-5" />
             </span>
           </div>
 
@@ -166,6 +170,8 @@ export default function ProductTable({ products }: ProductTableProps) {
         </div>
       </div>
 
+      {/* TABLE ------------------------------------------------------------------------------------------------------------------------------------------------ */}
+
       {/* Products Table */}
       <div className="w-full overflow-x-auto">
         <div className="min-w-full bg-white rounded-lg shadow">
@@ -192,7 +198,7 @@ export default function ProductTable({ products }: ProductTableProps) {
             {products.map((product) => (
               <div
                 key={product.sku}
-                className="grid grid-cols-12 p-4 hover:bg-gray-50 items-center text-sm"
+                className="grid grid-cols-12 p-4 hover:bg-gray-200 items-center text-sm"
               >
                 <div className="col-span-1">
                   <input
@@ -201,17 +207,19 @@ export default function ProductTable({ products }: ProductTableProps) {
                   />
                 </div>
                 <div className="col-span-4 flex items-center gap-3">
-                  <div className="w-12 h-12 relative">
+                  <div className="w-12 h-12 relative  rounded drop-shadow-2xl">
                     <Image
                       src={product.thumbnail || "/placeholder.png"}
                       alt={product.name}
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-fill rounded-full shadow-2xl border"
                     />
                   </div>
                   <div>
                     <div className="font-medium text-gray-900">
-                      {product.name}
+                      <Link href="#" className="text-blue-600 hover:underline">
+                        {product.name}
+                      </Link>
                     </div>
                     <div className="text-gray-500">SKU-{product.sku}</div>
                   </div>
@@ -229,8 +237,10 @@ export default function ProductTable({ products }: ProductTableProps) {
                   {product.quantity}
                 </div>
                 <div className="col-span-1 flex justify-center">
-                  <button className="p-2 hover:bg-gray-100 rounded-full">
-                    <DotsVerticalIcon className="w-5 h-5 text-gray-500" />
+                  <button className="p-2 hover:bg-gray-200 rounded-full">
+                    <Link href="#">
+                      <BsThreeDotsVertical className="w-5 h-5 text-blue-500" />
+                    </Link>
                   </button>
                 </div>
               </div>
@@ -241,38 +251,3 @@ export default function ProductTable({ products }: ProductTableProps) {
     </div>
   );
 }
-
-// Icons components
-const SearchIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-    />
-  </svg>
-);
-
-const DotsVerticalIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-    />
-  </svg>
-);
