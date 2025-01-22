@@ -9,7 +9,7 @@ export default function Page() {
   // Pagination-------------------------------------
 
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 14; // Your total number of pages
+  const totalPages = 6; // Your total number of pages
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -55,6 +55,8 @@ export default function Page() {
       <div>
         <ProductTable products={products} />
       </div>
+
+      {/* // Pagination------------------------------------- */}
       <div className="container mx-auto px-4">
         {/* Your content here */}
 
@@ -64,6 +66,8 @@ export default function Page() {
           onPageChange={handlePageChange}
         />
       </div>
+
+      {/* // Pagination------------------------------------- */}
     </div>
   );
 }
