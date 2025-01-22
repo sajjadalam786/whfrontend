@@ -48,7 +48,7 @@ const LeftSidebar = () => {
       >
         {/* Logo Area */}
         <div className="h-16 flex items-center justify-center border-b border-white/10">
-          <h1 className="text-xl font-bold">Wholesale House</h1>
+          <h1 className="text-xl font-bold">Swimwell Pools India</h1>
         </div>
 
         {/* Navigation Links */}
@@ -232,7 +232,7 @@ const LeftSidebar = () => {
           {/* Add Product Form - handWritten code --------------------------- */}
 
           <Link
-            href="/components/addproduct/"
+            href="/components/product/addproduct/"
             className="flex rounded-lg hover:bg-white/10 transition-colors items-center p-3 space-x-3"
           >
             <MdOutlineAddShoppingCart size={20} />
