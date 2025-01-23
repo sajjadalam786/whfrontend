@@ -3,9 +3,9 @@
 import ProductTable from "../producttable/page";
 import Link from "next/link";
 import { useState } from "react";
-import Pagination from "../../../components/pagination/page";
+import Pagination from "../../pagination/page";
 
-export default function Page() {
+export default function ProductList() {
   // Pagination-------------------------------------
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,7 +47,7 @@ export default function Page() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Products</h1>
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-          <Link href="/components/product/addproduct/" className="p-4">
+          <Link href="/products/addproductform/" className="p-4">
             Add Product
           </Link>
         </button>

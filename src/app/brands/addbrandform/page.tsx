@@ -13,7 +13,7 @@ interface BrandFormData {
   status: string;
 }
 
-const AddBrand = () => {
+const AddBrandForm = () => {
   // Initialize react-hook-form with type definitions for form data
   const {
     register, // Register input fields for form validation
@@ -158,4 +158,4 @@ const AddBrand = () => {
   );
 };
 
-export default AddBrand;
+export default AddBrandForm;

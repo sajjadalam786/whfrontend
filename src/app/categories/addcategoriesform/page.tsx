@@ -7,7 +7,7 @@ interface FormData {
   categoryImage: File | null;
 }
 
-export default function AddCategory(): JSX.Element {
+export default function AddCategoriesForm(): JSX.Element {
   const [formData, setFormData] = useState<FormData>({
     categoryName: "",
     categoryImage: null,

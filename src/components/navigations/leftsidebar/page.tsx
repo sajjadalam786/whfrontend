@@ -55,7 +55,7 @@ const LeftSidebar = () => {
         <nav className="p-4 space-y-2">
           {/* Dashboard - Simple Link */}
           <Link
-            href="/components/dashboard"
+            href="/dashboard/"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
           >
             <RiDashboardLine size={20} />
@@ -76,7 +76,7 @@ const LeftSidebar = () => {
 
           {/* product List - Simple Link */}
           <Link
-            href="/components/product/productlist/"
+            href="/products/"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
           >
             <MdOutlineAddShoppingCart size={20} />
@@ -114,8 +114,8 @@ const LeftSidebar = () => {
             >
               <div className="pl-9 py-2 space-y-2">
                 <Link
-                  href="/components/vendor/addvendor/"
-                  className=" flex space-x-3 items-centerp-2 rounded-lg hover:bg-white/10 transition-colors"
+                  href="/vendors/addvendorform/"
+                  className="flex space-x-3 items-center  p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <MdOutlineGroupAdd size={20} />
 
@@ -166,8 +166,8 @@ const LeftSidebar = () => {
             >
               <div className="pl-9 py-2 space-y-2">
                 <Link
-                  href="/components/brand/addbrand/"
-                  className=" space-x-3 items-center block p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  href="/brands/addbrandform"
+                  className="flex space-x-3 items-center  p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <IoIosAddCircleOutline size={20} />
 
@@ -214,22 +214,22 @@ const LeftSidebar = () => {
             >
               <div className="pl-9 py-2 space-y-2">
                 <Link
-                  href="/components/category/addcategory/"
-                  className=" flex space-x-3 items-center  rounded-lg hover:bg-white/10 transition-colors"
+                  href="/categories/addcategoriesform/"
+                  className="flex space-x-3 items-center  p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />
 
                   <span>New Category</span>
                 </Link>
                 <Link
-                  href="/components/category/addsubcategory/"
+                  href="/categories/addsubcategoriesform/"
                   className="flex space-x-3 items-center p-2 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />
                   <span>Sub Category</span>
                 </Link>
                 <Link
-                  href="/components/category/addsubsubcategory/"
+                  href="/categories/addsubsubcategoriesform/"
                   className="flex space-x-3 p-2 items-center  rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <FaRegCircle size={15} />

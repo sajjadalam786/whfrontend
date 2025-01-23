@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LeftSidebar from "./components/leftsidebar/page";
-import Header from "./components/header/page";
+import LeftSidebar from "../components/navigations/leftsidebar/page";
+// import Header from "../components/header/page";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
