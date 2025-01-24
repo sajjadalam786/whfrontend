@@ -4,6 +4,7 @@ import ProductTable from "../producttable/page";
 import Link from "next/link";
 import { useState } from "react";
 import Pagination from "../../pagination/page";
+import { IoSettings } from "react-icons/io5";
 
 export default function ProductList() {
   // Pagination-------------------------------------
@@ -31,7 +32,57 @@ export default function ProductList() {
     },
     {
       id: "1",
-      sku: "1591235",
+      sku: "2323",
+      name: "Desi Eggs",
+      category: "Eggs & Poultry",
+      salePrice: 400.0,
+      mrp: 500.0,
+      quantity: 1,
+      thumbnail: "/wholesale house logo.png",
+    },
+    {
+      id: "1",
+      sku: "22233",
+      name: "Desi Eggs",
+      category: "Eggs & Poultry",
+      salePrice: 400.0,
+      mrp: 500.0,
+      quantity: 1,
+      thumbnail: "/wholesale house logo.png",
+    },
+    {
+      id: "1",
+      sku: "21212",
+      name: "Desi Eggs",
+      category: "Eggs & Poultry",
+      salePrice: 400.0,
+      mrp: 500.0,
+      quantity: 1,
+      thumbnail: "/wholesale house logo.png",
+    },
+    {
+      id: "1",
+      sku: "2121212",
+      name: "Desi Eggs",
+      category: "Eggs & Poultry",
+      salePrice: 400.0,
+      mrp: 500.0,
+      quantity: 1,
+      thumbnail: "/wholesale house logo.png",
+    },
+    {
+      id: "1",
+      sku: "1212",
+      name: "Desi Eggs",
+      category: "Eggs & Poultry",
+      salePrice: 400.0,
+      mrp: 500.0,
+      quantity: 1,
+      thumbnail: "/wholesale house logo.png",
+    },
+    {
+      id: "1",
+      sku: "12",
       name: "Desi Eggs",
       category: "Eggs & Poultry",
       salePrice: 400.0,
@@ -44,14 +95,25 @@ export default function ProductList() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-semibold">Products</h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-          <Link href="/products/addproductform/" className="p-4">
+      <h1 className="text-2xl font-semibold">Products</h1>
+      <div className="flex  mb-6 justify-end">
+        <button className="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-700 ">
+          <Link href="/products/addproductform/" className="p-4 text-pretty">
             Add Product
           </Link>
         </button>
+
+        <button className=" bg-slate-700 text-white px-4 py-2 rounded-lg hover:bg-blue-700 ">
+          <Link
+            href="/products/productfields/"
+            className="flex p-1 justify-center items-center"
+          >
+            <IoSettings size={25} className="mr-2" />
+            Product Fields (Attrs)
+          </Link>
+        </button>
       </div>
+
       <div>
         <ProductTable products={products} />
       </div>
